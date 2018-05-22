@@ -5,21 +5,22 @@ import NoteList from './NoteList'
 import NoteForm from './NoteForm'
 
 
-const Main = () =>{
+const Main = () => {
 return(
-    <div className="Main">
+    <div 
         className="Main"
         style = {style}
-       <Sidebar/>
-       <NoteList/>
-       <NoteForm/>
+        >
+       <Sidebar />
+       <NoteList />
+       <NoteForm />
     </div>
 )
 }
 
 const style ={
-    color'read',
     display:'flex',
+    height: '100vh',
     alignItems: 'stretch',
 }
 export default Main
