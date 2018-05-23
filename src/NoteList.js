@@ -6,9 +6,9 @@ const NoteList = () => {
           <h3 style = {styles.h3}>Notes</h3>
           <ul id="notes" style = {styles.ul}>
             <a class="active" style = {styles.ula}>
-              <li style = {styles.ulli}>
-                <div class="note">
-                  <div class="note-title">
+              <li>
+                <div class="note" style ={styles.note}>
+                  <div class="note-title" style = {styles.noteTitle}>
                     Kohlrabi welsh
                   </div>
                   <div class="note-body" style={styles.noteBody}>
@@ -20,9 +20,9 @@ const NoteList = () => {
               </li>
             </a>
             <a>
-              <li style = {styles.ulli}>
-                <div class="note">
-                  <div class="note-title">
+              <li>
+                <div class="note" style={styles.note}>
+                  <div class="noteTitle" style={styles.noteTitle}>
                     Dandelion cucumber
                   </div>
                   <div class="note-body" style={styles.noteBody}>
@@ -34,12 +34,12 @@ const NoteList = () => {
               </li>
             </a>
             <a>
-              <li style = {styles.ulli}>
-                <div class="note">
-                  <div class="note-title">
+              <li>
+                <div class="note" style = {styles.note}>
+                  <div class="note-title" style = {styles.noteTitle}>
                     Prairie turnip
                   </div>
-                  <div class="note-body">
+                  <div class="note-body" style={styles.noteBody}>
                     <p>
                       Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.
                     </p>
@@ -85,7 +85,22 @@ const styles = {
         height: '100px',
         fontSize:'90px',
         cursor: 'pointer',
-        overflow: 'hidden'
+        overflow: 'hidden',
+    },
+    note:{
+      display: 'block',
+      height: '100px',
+      padding: '1em',
+      textDecoration: 'none',
+    },
+    noteTitle:{
+      color: '#4a4a4a',
+      fontFamily: 'Fauna One',
+      fontSize: '120%',
+      fontWeight: '400',
+      whiteSpace: 'nowrap',
+      overflowX: 'hidden',
+      textOverflow: 'ellipsis'
     },
     noteBody:{
         height: '54px',
