@@ -1,17 +1,16 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
 
 import quill from './media/quill.svg'
 import newIcon from './media/new.png'
 import newHover from './media/new-hover.png'
 
-const Sidebar = () => {
+const Sidebar = ({resetCurrentNote}) => {
   return (
-    <nav className="Sidebar" 
-    style ={styles.sidebar}
+    <nav className={css(styles.sidebar)}
     >
       <div 
-        className="logo" 
-        style = {styles.logo}
+        className={css(styles.logo)}
       >
         <img 
           src={quill} 
@@ -19,30 +18,32 @@ const Sidebar = () => {
           style={styles.logoImg}/>
       </div>
       <a 
-      className="new-note" 
+      className={css(styles.newNote)} 
         href="/notes" 
-        style={styles.newNote}
+        onClick={(ev) => {
+          resetCurrentNote()
+        }}
         >
         <img 
           src={newHover} 
           alt="New note" 
-          style={styles.newNoteImg}/>
+          className={css(styles.newNoteImg)}/>
         <img 
-        className="outline" 
+        className={css(styles.newNoteImg, styles.newNoteImgHover)} 
         src={newIcon} 
-        alt="New note" 
-        style={styles.newNoteImg}/>
+        alt="New note"/>
       </a>
-      <div className="SignOut" style={styles.signOut}>
-        <button style={styles.button}>
-          <i className="fa fa-sign-out" style={styles.buttonIcon}></i>
+      <div className={css(styles.signOut)}>
+        <button className={css(styles.button)}>
+          <i className={`fas fa-sign-out-alt ${css(styles.buttonIcon)}`}
+          title="sign out"></i>
         </button>
       </div>
     </nav>
   )
 }
     
-    const styles = {
+    const styles = StyleSheet.create({
     sidebar: {
       width: '6rem',
       backgroundColor: '#f3f3f3',
@@ -71,6 +72,11 @@ const Sidebar = () => {
       width: '100%',
       transition: 'opacity 0.25s ease-in-out',
     },
+    newNoteImgHover: {
+      ':hover': {
+        opacity: 0,
+        },
+      },
     signOut: {
       position: 'absolute',
       bottom: '1rem',
@@ -85,5 +91,5 @@ const Sidebar = () => {
     buttonIcon: {
       fontSize: '2rem',
     },
-  }
+  })
 export default Sidebar
